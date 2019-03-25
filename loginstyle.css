@@ -1,0 +1,184 @@
+body{
+	margin: 100px;
+	padding: 0px;
+	font-family: sans-serif;
+	background: #34495e;
+}	
+
+.box{
+	width: 350px;
+	height: 480px;
+	padding: 40px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	background: #ffffff;
+	text-align: center;
+	border-radius: 10px;
+}
+
+.box h1{
+	color: black;
+	text-transform: uppercase;
+	font-weight: 400;
+	padding-top: 1px;
+}
+
+.box h3{
+	color: black;
+	text-transform: uppercase;
+	font-weight: 50;
+}
+
+.box h2{
+	color: black;
+	text-transform: uppercase;
+	font-weight: 200;
+	font:bold;
+}
+
+
+.box input[type = "text"],.box input[type = "password"],.box input[type ="Email"]{
+	border:0;
+	background: none;
+	display: block;
+	margin: 20px auto;
+	text-align: center;
+	border: 2px solid #3498db;
+	padding: 10px 10px;
+	width: 200px;
+	outline: none;
+	color: black;
+	border-radius: 26px;
+	transition: 0.25s;
+}
+
+.signup{
+	padding-top: 30px;
+}
+
+
+.box input[type = "text"]:focus,.box input[type = "password"]:focus,.box input[type ="Email"]:focus{
+	width: 280px;
+	border-color: #2ecc71;
+}
+
+.box input[type = "submit"]{
+	border:0;
+	background: none;
+	display: block;
+	margin: 20px auto;
+	text-align: center;
+	border: 2px solid #2ecc71;
+	padding: 14px 40px;
+	outline: none;
+	font-weight: bold;
+	color: black;
+	border-radius: 24px;
+	transition: 0.25s;
+	cursor: pointer;
+}
+
+.box input[type = "submit"]:hover{
+	background: #2ecc71;
+}
+
+.heading h1{
+	margin: 0px;
+	padding-top: 0px;
+	font-size: 30px;
+	font:bold;
+}
+
+.box h4{
+	font-size: 13px;
+	font:bold;
+	color: #808080;
+}
+
+.btn1{
+	text-align: center;
+	border: 1px solid #808080;
+	padding: 12px 45px;
+	outline: none;
+	font-weight: bold;
+	font-size: 16px;
+	color: black;
+	border-radius: 5px;
+	background-color: white;
+	cursor: pointer;
+}
+
+.btn2{
+	text-align: center;
+	border: 1px solid #3C5A99;
+	padding: 12px 45px;
+	outline: none;
+	color: white;
+	font-weight: bold;
+	font-size: 16px;
+	border-radius: 5px;
+	background-color: #3C5A99;
+}
+
+.btn1 span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btn1 span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+
+
+.btn1:hover span {
+  padding-right: 25px;
+}
+
+.btn1:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+
+.btn2 span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btn2 span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+
+
+.btn2:hover span {
+  padding-right: 25px;
+}
+
+.btn2:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.term{
+	font-size: 13px;
+}
+
+

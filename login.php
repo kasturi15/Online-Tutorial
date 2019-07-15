@@ -26,10 +26,22 @@
 							$value = $result->fetch_assoc();
 							$id = $value['Id'];							
 							$_SESSION['Id'] =$id;
-							header('location: index.php');						
+							header('location: studentDashboard.php');						
 						}
 						else{
+
+							$result = $con->query("SELECT * FROM `tutorlogin` WHERE `tutorName` = '$user' AND `tutorPass` = '$pass'");
+
+							if ($result->num_rows == 1) {
+							# code...
+								$value = $result->fetch_assoc();
+								$id = $value['tutorName'];							
+								$_SESSION['tutorName'] =$id;
+								header('location: teacherDashboard.php');						
+							}
+							else{
 								echo "username and password did not match.";
+							}
 						}
 					}
 					else{

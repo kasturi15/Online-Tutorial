@@ -1,60 +1,130 @@
-﻿<!DOCTYPE html>
+<?php
+	require_once 'connect.php';
+
+	$sql = "SELECT * FROM `tutors`";
+	$query = mysqli_query($con,$sql);
+?>
+<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>ONLINE EXAM | WELCOME</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 	<header>
 		<div class="container">
 			<div id="branding">
-				<h1><span class="highlight">ONLINE</span> TUTORIALS </h1>	
+				<h1><a href="index.php"><span class="highlight">ONLINE</span> TUTORIALS</a> </h1>	
 			</div>
 			<nav>
 				<ul>
-					<li class="current"><a href="index.php"> HOME </a></li>
-					<li><a href="index.php"> TUTORS </a> </li>
-					<li><a href="index.php"> COURSES </a> </li>
-					<li><a href="index.php"> ABOUT US </a> </li>
-					<li><a href="index.php"> REQUEST DEMO </a></li>
-					<li><a href="loginpage.html"> LOG IN </a> </li>
-					<li><a href="signup.html"> SIGN UP </a> </li>
+					<li><div class="dropdown">
+    						<button class="dropbtn"><a href="index.php">Home </a>
+      							<i class="fa fa-caret-down"></i>
+    						</button>
+    						<div class="dropdown-content">
+      							<a href="aboutus.php">About Us</a>
+      							<a href="contact.php">Contact Us</a>
+    						</div>
+  						</div> 
 
+					</li>
+					<li>
+						<div class="dropdown">
+    						<button class="dropbtn">Tutors 
+      							<i class="fa fa-caret-down"></i>
+    						</button>
+    						<div class="dropdown-content">
+    							<?php
+    								while ($row=mysqli_fetch_assoc($query)) 
+									{
+										$tutorId = $row['tutorId'];
+										$name =$row['tutorName'];
+										echo "<a href='teacherProfile.php?id=$tutorId'>$name</a>";
+									}
+								?>
+      							<hr><a href="becomeTutor.html">Become a Tutor</a>
+    						</div>
+  						</div> 
+					</li>
+					<li> 
+						<div class="dropdown">
+    						<button class="dropbtn">Courses 
+      							<i class="fa fa-caret-down"></i>
+    						</button>
+    						<div class="dropdown-content">
+      							<a href="subjects.php?class=1">Class 1</a>
+      							<a href="subjects.php?class=2">Class 2</a>
+      							<a href="subjects.php?class=3">Class 3</a>
+      							<a href="subjects.php?class=4">Class 4</a>
+      							<a href="subjects.php?class=5">Class 5</a>
+      							<a href="subjects.php?class=6">Class 6</a>
+      							<a href="subjects.php?class=7">Class 7</a>
+      							<a href="subjects.php?class=8">Class 8</a>
+      							<a href="subjects.php?class=9">Class 9</a>
+      							<a href="subjects.php?class=10">Class 10</a>
+    						</div>
+  						</div> 
+  					</li>
+					<li> <button id="myBtn">Sign In</button></li>
 				</ul>
 
-				
-			</nav>
+				<!-- Trigger/Open The Modal -->
 
-			
+
+            	<div id="myModal" class="modal">
+              		<!-- Modal content -->
+            		<div class="modal-content">
+              			<span class="close">&times;</span>
+                		<form class="boxlog" action="login.php" method="post">
+	                		<div class="heading"><h1>WELCOME TO Online Tutorials</h1></div>
+	                  		<h4>Enroll in courses and watch lessons from India's best educators</h4>
+	                		<div class="btn-group">
+	                    		<button class="btn1"><span>Google</span></button>
+	                    		<button class="btn2"><span>Facebook</span></button>
+	                		</div>
+		                	<div class="signup">
+			                	<h2>Login</h2>
+			                	<input type="text" name="username" placeholder="Username">
+								<input type="Password" name="password" placeholder="Password">
+								<input type="submit" name="sign" value="sign">
+		                	</div>
+	                		<p class="term">By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+	                		<p style="color: #000;">Don't have an account? <a href="signup.html" style="color:dodgerblue">Sign up</a></p>
+              			</form>
+              		</div>
+            	</div>
+            	<script type="text/javascript" src="modal.js"></script>		
+			</nav>		
 		</div>
 	</header>
 
 	<section id="showcase">
-		<div class="bgimage">
-		<div class="container">
-			<h1> Your ultimate destination for online assessment</h1>
-			<p> Prepare candidates to perform extraordinarily with an easy to use highly interactive platform and simplify the assessment cycle.</p>
-			<button id="buttonone"> WATCH OUR VIDEO </button>
-			<button id="buttontwo"> GET STARTED FOR FREE </button>
+		<div id="snow_fall">
+			<div class="bgimage">
+				<div class="container">
+					<h1> Your ultimate destination for online learning</h1>
+					<p> Prepare candidates to perform extraordinarily with an easy to use highly interactive platform and simplify the learning cycle.</p>
+					<button id="buttonone"><a href="demo.php?id=8"> WATCH OUR VIDEO</a> </button>
+				</div>
+			</div>
+			<script type="text/javascript" src="particles.js"></script>
+			<script type="text/javascript" src="app1.js"></script>	
 		</div>	
-			
-		</div>
-		
 	</section>
 
 	<section id="newsletter">
+		
 		<div class="container">
 			<h1> Subscribe To Our Newsletter</h1>
 			<form>
 				<input type="email" placeholder="Enter Email...">
 				<button type="submit" class="button_1"> Subscribe </button>
 			</form>
-			
 		</div>
-
-		
 	</section>
 
 	<section id="boxes">
@@ -106,23 +176,13 @@
 		<div class="work">
 			<h3> Active accessibility </h3>
 			<p> Go wherever you want to and practice whenever you want, using the next level online exam platform. Experience a lag-free synchronized performance of think exam on your mobile devices. </p>
-		</div>
-
-
-		
+		</div>	
 	</section>
 
-	<section id="customer">
-		<div class="client">
-			<h1> A few of the clients who trusted on us.</h1>
-			
-		</div>
-	</section>
-
-	<footer>
-		<P> © 2018 Ginger Webs Pvt. Ltd, All rights reserved | Powered by onlineexam.com </P>
+	<div class="footer">
+		<p> © 2018 Ginger Webs Pvt. Ltd, All rights reserved | Powered by onlineexam.com </p>
 		
-	</footer>
+	</div>
 
 </body>
 </html>

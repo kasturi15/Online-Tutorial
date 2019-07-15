@@ -8,6 +8,7 @@
 
 		if ($_POST) {
 			# code...
+			$name = $_POST['fullname'];
 			$user = $_POST['username'];
 			$pass = $_POST['password'];
 			$email = $_POST['email'];
@@ -17,12 +18,11 @@
 				# code...
 				if (!empty($user) && !empty($pass) && !empty($email)) {
 					# code...
-					$sql= "INSERT INTO `users`(`username`, `password`, `email`) VALUES ('$user','$pass','$email')";
+					$sql= "INSERT INTO `tutors`(`tutorId`, `tutorName`, `tutorUserName`,`tutorPass`,`tutorEmail`) VALUES ('','$name','$user','$pass','$email')";
 					$result = mysqli_query($con,$sql);
-					$sql1= "INSERT INTO `login`(`Id`, `password`) VALUES ('$user','$pass')";
+					$sql1= "INSERT INTO `tutorlogin`(`tutorName`, `tutorPass`) VALUES ('$user','$pass')";
 					$result1 = mysqli_query($con,$sql1);
-					$_SESSION['username'] =$user;
-					header('location: studentList.php');						
+					header('location: loginpage.html');						
 				}
 				else{
 					echo "All fields are required.";
